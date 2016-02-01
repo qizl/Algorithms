@@ -1,2 +1,6 @@
 *.dll
 *.pdb
+bin/
+Debug/
+packages
+obj/
