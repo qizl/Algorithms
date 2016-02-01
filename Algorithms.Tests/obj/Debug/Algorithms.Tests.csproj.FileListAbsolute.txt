@@ -1,0 +1,16 @@
+E:\PL\MyProjects\SVN\算法\Algorithms.Tests\obj\Debug\Algorithms.Tests.csprojResolveAssemblyReference.cache
+E:\PL\MyProjects\SVN\算法\Algorithms.Tests\bin\Debug\Algorithms.Tests.dll
+E:\PL\MyProjects\SVN\算法\Algorithms.Tests\bin\Debug\Algorithms.Tests.pdb
+E:\PL\MyProjects\SVN\算法\Algorithms.Tests\bin\Debug\Algorithms.dll
+E:\PL\MyProjects\SVN\算法\Algorithms.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\PL\MyProjects\SVN\算法\Algorithms.Tests\bin\Debug\Algorithms.pdb
+E:\PL\MyProjects\SVN\算法\Algorithms.Tests\obj\Debug\Algorithms.Tests.dll
+E:\PL\MyProjects\SVN\算法\Algorithms.Tests\obj\Debug\Algorithms.Tests.pdb
+E:\PL\~课程\~Practise\算法\Algorithms.Tests\bin\Debug\Algorithms.Tests.dll
+E:\PL\~课程\~Practise\算法\Algorithms.Tests\bin\Debug\Algorithms.Tests.pdb
+E:\PL\~课程\~Practise\算法\Algorithms.Tests\bin\Debug\Algorithms.dll
+E:\PL\~课程\~Practise\算法\Algorithms.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\PL\~课程\~Practise\算法\Algorithms.Tests\bin\Debug\Algorithms.pdb
+E:\PL\~课程\~Practise\算法\Algorithms.Tests\obj\Debug\Algorithms.Tests.csprojResolveAssemblyReference.cache
+E:\PL\~课程\~Practise\算法\Algorithms.Tests\obj\Debug\Algorithms.Tests.dll
+E:\PL\~课程\~Practise\算法\Algorithms.Tests\obj\Debug\Algorithms.Tests.pdb
