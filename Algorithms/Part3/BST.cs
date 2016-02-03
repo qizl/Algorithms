@@ -253,7 +253,7 @@ namespace Algorithms.Part3
                 return x.Right;
 
             x.Left = this.deleteMin(x.Left);
-            x.N = size(x.Left) + size(x.Right) + 1;
+            x.N = this.size(x.Left) + this.size(x.Right) + 1;
 
             return x;
         }
@@ -290,22 +290,27 @@ namespace Algorithms.Part3
                 x.Left = this.delete(x.Left, key);
             else if (cmp > 0)
                 x.Right = this.delete(x.Right, key);
-            else {
+            else
+            {
                 if (x.Right == null)
                     return x.Left;
                 if (x.Left == null)
                     return x.Right;
 
                 Node t = x;
-                x = min(t.Right);
-                x.Right = deleteMin(t.Right);
+                x = this.min(t.Right);
+                x.Right = this.deleteMin(t.Right);
                 x.Left = t.Left;
             }
-            x.N = size(x.Left) + size(x.Right) + 1;
+            x.N = this.size(x.Left) + this.size(x.Right) + 1;
 
             return x;
         }
 
+        /// <summary>
+        /// Returns all keys in the symbol table as an Iterable.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Key> Keys()
         {
             return this.Keys(this.Min(), this.Max());
@@ -343,7 +348,7 @@ namespace Algorithms.Part3
         {
             if (x == null)
                 return -1;
-            return 1 + Math.Max(height(x.Left), height(x.Right));
+            return 1 + Math.Max(this.height(x.Left), this.height(x.Right));
         }
 
         /// <summary>
@@ -372,9 +377,13 @@ namespace Algorithms.Part3
         /// <returns></returns>
         private bool check()
         {
-            if (!isBST()) Debug.WriteLine("Not in symmetric order");
-            if (!isSizeConsistent()) Debug.WriteLine("Subtree counts not consistent");
-            if (!isRankConsistent()) Debug.WriteLine("Ranks not consistent");
+            if (!isBST())
+                Debug.WriteLine("Not in symmetric order");
+            if (!isSizeConsistent())
+                Debug.WriteLine("Subtree counts not consistent");
+            if (!isRankConsistent())
+                Debug.WriteLine("Ranks not consistent");
+
             return this.isBST() && this.isSizeConsistent() && this.isRankConsistent();
         }
 
@@ -387,11 +396,9 @@ namespace Algorithms.Part3
         {
             return this.isBST(this._root, default(Key), default(Key));
         }
-
         /// <summary>
         /// is the tree rooted at x a BST with all keys strictly between min and max
         /// (if min or max is null, treat as empty constraint)
-        /// Credit: Bob Dondero's elegant solution
         /// </summary>
         /// <param name="x"></param>
         /// <param name="min"></param>
@@ -399,9 +406,13 @@ namespace Algorithms.Part3
         /// <returns></returns>
         private bool isBST(Node x, Key min, Key max)
         {
-            if (x == null) return true;
-            if (min != null && x.Key.CompareTo(min) <= 0) return false;
-            if (max != null && x.Key.CompareTo(max) >= 0) return false;
+            if (x == null)
+                return true;
+            if (min != null && x.Key.CompareTo(min) <= 0)
+                return false;
+            if (max != null && x.Key.CompareTo(max) >= 0)
+                return false;
+
             return this.isBST(x.Left, min, x.Key) && this.isBST(x.Right, x.Key, max);
         }
 
@@ -409,13 +420,16 @@ namespace Algorithms.Part3
         /// are the size fields correct?
         /// </summary>
         /// <returns></returns>
-        private bool isSizeConsistent() { return this.isSizeConsistent(this._root); }
+        private bool isSizeConsistent()
+        {
+            return this.isSizeConsistent(this._root);
+        }
         private bool isSizeConsistent(Node x)
         {
             if (x == null)
                 return true;
 
-            if (x.N != size(x.Left) + size(x.Right) + 1)
+            if (x.N != this.size(x.Left) + this.size(x.Right) + 1)
                 return false;
             return
                 this.isSizeConsistent(x.Left) && this.isSizeConsistent(x.Right);
@@ -427,11 +441,11 @@ namespace Algorithms.Part3
         /// <returns></returns>
         private bool isRankConsistent()
         {
-            for (int i = 0; i < Size(); i++)
-                if (i != Rank(Select(i)))
+            for (int i = 0; i < this.Size(); i++)
+                if (i != this.Rank(this.Select(i)))
                     return false;
-            foreach (Key key in Keys())
-                if (key.CompareTo(Select(Rank(key))) != 0)
+            foreach (Key key in this.Keys())
+                if (key.CompareTo(this.Select(this.Rank(key))) != 0)
                     return false;
 
             return true;
