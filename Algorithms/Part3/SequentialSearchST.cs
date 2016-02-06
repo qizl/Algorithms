@@ -42,9 +42,6 @@ namespace Algorithms.Part3
 
         public Value Get(Key key)
         {
-            if (key.Equals(default(Key)))
-                throw new Exception("argument to get() is empty");
-
             for (Node x = this._first; x != null; x = x.Next)
                 if (key.Equals(x.Key))
                     return x.Value;
@@ -54,14 +51,6 @@ namespace Algorithms.Part3
 
         public void Put(Key key, Value value)
         {
-            if (key.Equals(default(Key)))
-                throw new Exception("argument to put() is empty");
-            //if (value.Equals(default(Value)))
-            //{
-            //    this.Delete(key);
-            //    return;
-            //}
-
             for (Node x = this._first; x != null; x = x.Next)
                 if (key.Equals(x.Key))
                 {

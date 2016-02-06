@@ -36,5 +36,65 @@ namespace Algorithms.Tests
 
             Assert.AreEqual(strs.Distinct().Count(), st.Keys().Count());
         }
+
+        [TestMethod]
+        public void TestBST()
+        {
+            BST<string, int> st = new BST<string, int>();
+
+            int amounts = 20;
+            string[] strs = new string[amounts];
+            Random rand = new Random();
+            for (int i = 0; i < amounts; i++)
+            {
+                strs[i] = Convert.ToChar(rand.Next(97, 122)).ToString();
+                st.Put(strs[i], i);
+            }
+            StringBuilder sb0 = new StringBuilder();
+            foreach (var str in strs)
+                sb0.Append(str + " ");
+            Debug.WriteLine(sb0.ToString());
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in st.Keys())
+                sb.Append(item + "-" + st.Get(item) + " ");
+            Debug.WriteLine(sb.ToString());
+
+            Assert.AreEqual(strs.Distinct().Count(), st.Keys().Count());
+        }
+
+        [TestMethod]
+        public void TestHash()
+        {
+            string str = "abc";
+            int i = 3;
+            int h = str.GetHashCode();
+        }
+
+        [TestMethod]
+        public void TestSeparateChainingHashST()
+        {
+            SeparateChainingHashST<string, int> st = new SeparateChainingHashST<string, int>();
+
+            int amounts = 20;
+            string[] strs = new string[amounts];
+            Random rand = new Random();
+            for (int i = 0; i < amounts; i++)
+            {
+                strs[i] = Convert.ToChar(rand.Next(97, 122)).ToString();
+                st.Put(strs[i], i);
+            }
+            StringBuilder sb0 = new StringBuilder();
+            foreach (var str in strs)
+                sb0.Append(str + " ");
+            Debug.WriteLine(sb0.ToString());
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in st.Keys())
+                sb.Append(item + "-" + st.Get(item) + " ");
+            Debug.WriteLine(sb.ToString());
+
+            Assert.AreEqual(strs.Distinct().Count(), st.Keys().Count());
+        }
     }
 }

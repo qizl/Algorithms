@@ -44,6 +44,10 @@
     <Compile Include="Part1\UnionFind.cs" />
     <Compile Include="Part2\PriorityQueues.cs" />
     <Compile Include="Part2\Sort.cs" />
+    <Compile Include="Part3\BST.cs" />
+    <Compile Include="Part3\LinearProbingHashST.cs" />
+    <Compile Include="Part3\RedBlackBST.cs" />
+    <Compile Include="Part3\SeparateChainingHashST.cs" />
     <Compile Include="Part3\SequentialSearchST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
