@@ -56,6 +56,7 @@
     <Compile Include="Part1Test.cs" />
     <Compile Include="Part2Test.cs" />
     <Compile Include="Part3Test.cs" />
+    <Compile Include="Part4Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

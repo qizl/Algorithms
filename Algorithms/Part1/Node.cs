@@ -19,7 +19,7 @@ namespace Algorithms.Part1
     /// 下压堆栈
     /// </summary>
     /// <typeparam name="Item"></typeparam>
-    public class Stack<Item>
+    public class Stack<Item> : IEnumerable
     {
         private node _first;
         private int _n;
@@ -48,6 +48,45 @@ namespace Algorithms.Part1
             this._n--;
 
             return item;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new ListIEnumnberator(this._first);
+        }
+        private class ListIEnumnberator : IEnumerator
+        {
+            private readonly node _currentBg;
+            private node _current;
+
+            public object Current { get { return this._current.Item; } }
+
+            public ListIEnumnberator(node first)
+            {
+                this._currentBg = new node();
+                this._current = new node();
+
+                this._currentBg.Next = first;
+                this._current.Next = first;
+            }
+
+            public bool MoveNext()
+            {
+                bool b = this._current != null;
+
+                if (b)
+                {
+                    this._current = this._current.Next;
+                    b = this._current != null;
+                }
+
+                return b;
+            }
+
+            public void Reset()
+            {
+                this._current = this._currentBg;
+            }
         }
     }
 
@@ -102,11 +141,11 @@ namespace Algorithms.Part1
     /// 背包
     /// </summary>
     /// <typeparam name="Item"></typeparam>
-    public class Bag<Item>
+    public class Bag<Item> : IEnumerable
     {
         private node _first;
         private int _n;
-        private class node
+        public class node
         {
             public Item Item { get; set; }
             public node Next { get; set; }
@@ -122,6 +161,45 @@ namespace Algorithms.Part1
             this._first.Item = item;
             this._first.Next = oldfirst;
             this._n++;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new ListIEnumnberator(this._first);
+        }
+        private class ListIEnumnberator : IEnumerator
+        {
+            private readonly node _currentBg;
+            private node _current;
+
+            public object Current { get { return this._current.Item; } }
+
+            public ListIEnumnberator(node first)
+            {
+                this._currentBg = new node();
+                this._current = new node();
+
+                this._currentBg.Next = first;
+                this._current.Next = first;
+            }
+
+            public bool MoveNext()
+            {
+                bool b = this._current != null;
+
+                if (b)
+                {
+                    this._current = this._current.Next;
+                    b = this._current != null;
+                }
+
+                return b;
+            }
+
+            public void Reset()
+            {
+                this._current = this._currentBg;
+            }
         }
     }
 }
