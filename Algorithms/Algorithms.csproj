@@ -49,6 +49,10 @@
     <Compile Include="Part3\RedBlackBST.cs" />
     <Compile Include="Part3\SeparateChainingHashST.cs" />
     <Compile Include="Part3\SequentialSearchST.cs" />
+    <Compile Include="Part4\BreadthFirstPaths.cs" />
+    <Compile Include="Part4\CC.cs" />
+    <Compile Include="Part4\DepthFirstPaths.cs" />
+    <Compile Include="Part4\DepthFirstSearch.cs" />
     <Compile Include="Part4\Graph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
