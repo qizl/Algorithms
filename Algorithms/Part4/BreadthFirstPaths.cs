@@ -44,7 +44,7 @@ namespace Algorithms.Part4
                     if (!this.Marked[w])
                     {
                         this._edgeTo[w] = s;
-                        this.bfs(g, w);
+                        this.Marked[w] = true;
                         queue.Enqueue(w);
                     }
             }

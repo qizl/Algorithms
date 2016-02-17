@@ -6,17 +6,17 @@ using System.Text;
 
 namespace Algorithms.Part4
 {
-    public class Graph
+    public class Digraph
     {
         public readonly int V;
         public int E { get; private set; }
 
         public Bag<int>[] Adj { get; private set; }
 
-        public Graph(int v)
+        public Digraph(int v)
         {
             if (v < 0)
-                throw new NullReferenceException("Number of vertices must be nonnegative");
+                throw new Exception("Number of vertices must be nonnegative");
 
             this.V = v;
             this.E = 0;
@@ -25,7 +25,7 @@ namespace Algorithms.Part4
                 this.Adj[i] = new Bag<int>();
         }
 
-        public Graph(Graph g)
+        public Digraph(Digraph g)
             : this(g.V)
         {
             this.E = g.E;
@@ -51,13 +51,21 @@ namespace Algorithms.Part4
             this.validateVertex(w);
             this.E++;
             this.Adj[v].Add(w);
-            this.Adj[w].Add(v);
         }
 
-        public int Degree(int v)
+        public int OutDegree(int v)
         {
             this.validateVertex(v);
             return this.Adj[v].Size;
+        }
+
+        public Digraph Reverse()
+        {
+            Digraph r = new Digraph(V);
+            for (int v = 0; v < V; v++)
+                foreach (int w in this.Adj[v])
+                    r.AddEdge(w, v);
+            return r;
         }
 
         public override string ToString()
