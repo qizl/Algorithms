@@ -37,7 +37,7 @@ namespace Algorithms.Part4
         {
             if (this.Weight() < that.Weight())
                 return -1;
-            else if (this.Weight() > this.Weight())
+            else if (this.Weight() > that.Weight())
                 return 1;
             else
                 return 0;

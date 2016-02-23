@@ -158,20 +158,19 @@ namespace Algorithms.Part2
             if (this.IsEmpty())
                 throw new KeyNotFoundException("Priority queue underflow");
 
+            this.exch(1, this._n);
+
             Key min = this.PQs[this._n--];
 
             this.sink(1);
-            this.PQs[this._n + 1] = default(Key); // null
+            this.PQs[this._n + 1] = default(Key);
             if ((this._n > 0) && (this._n == (this.PQs.Length - 1) / 4))
                 this.resize(this.PQs.Length / 2);
 
             return min;
         }
 
-        private bool greater(int i, int j)
-        {
-            return ((IComparable<Key>)this.PQs[i]).CompareTo(this.PQs[j]) > 0;
-        }
+        private bool greater(int i, int j) { return ((IComparable<Key>)this.PQs[i]).CompareTo(this.PQs[j]) > 0; }
 
         private void exch(int i, int j)
         {
@@ -189,7 +188,7 @@ namespace Algorithms.Part2
         {
             while (k > 1 && this.greater(k / 2, k))
             {
-                this.exch(k / 2, k);
+                this.exch(k, k / 2);
                 k = k / 2;
             }
         }
