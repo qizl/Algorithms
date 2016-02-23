@@ -57,11 +57,15 @@
     <Compile Include="Part4\Digraph.cs" />
     <Compile Include="Part4\DirectedCycle.cs" />
     <Compile Include="Part4\DirectedDFS.cs" />
+    <Compile Include="Part4\DirectedEdge.cs" />
     <Compile Include="Part4\Edge.cs" />
+    <Compile Include="Part4\EdgeWeightedDigraph.cs" />
     <Compile Include="Part4\EdgeWeightedGraph.cs" />
     <Compile Include="Part4\Graph.cs" />
     <Compile Include="Part4\KosarajuSCC.cs" />
+    <Compile Include="Part4\KruskalMST.cs" />
     <Compile Include="Part4\LazyPrimMST.cs" />
+    <Compile Include="Part4\PrimMST.cs" />
     <Compile Include="Part4\SymbolGraph.cs" />
     <Compile Include="Part4\Topological.cs" />
     <Compile Include="Part4\TransitiveClosure.cs" />

@@ -213,17 +213,99 @@ namespace Algorithms.Tests
         public void TestLazyPrimMST()
         {
             EdgeWeightedGraph g = new EdgeWeightedGraph(8);
-            g.AddEdge(new Edge(0, 7, 0.16));
-            g.AddEdge(new Edge(1, 7, 0.19));
-            g.AddEdge(new Edge(0, 2, 0.26));
-            g.AddEdge(new Edge(2, 3, 0.17));
-            g.AddEdge(new Edge(5, 7, 0.28));
-            g.AddEdge(new Edge(4, 5, 0.35));
-            g.AddEdge(new Edge(6, 2, 0.40));
+            g.AddEdge(new Edge(0, 2, 0.26d));
+            g.AddEdge(new Edge(0, 4, 0.38d));
+            g.AddEdge(new Edge(0, 7, 0.16d));
+            g.AddEdge(new Edge(1, 3, 0.29d));
+            g.AddEdge(new Edge(1, 2, 0.36d));
+            g.AddEdge(new Edge(1, 5, 0.32d));
+            g.AddEdge(new Edge(1, 7, 0.19d));
+            g.AddEdge(new Edge(2, 3, 0.17d));
+            g.AddEdge(new Edge(2, 7, 0.34d));
+            g.AddEdge(new Edge(3, 6, 0.52d));
+            g.AddEdge(new Edge(4, 5, 0.35d));
+            g.AddEdge(new Edge(4, 7, 0.37d));
+            g.AddEdge(new Edge(5, 7, 0.28d));
+            g.AddEdge(new Edge(6, 0, 0.58d));
+            g.AddEdge(new Edge(6, 2, 0.40d));
+            g.AddEdge(new Edge(6, 4, 0.93d));
             Debug.WriteLine(g);
 
             LazyPrimMST mst = new LazyPrimMST(g);
             Debug.WriteLine(mst);
+        }
+
+        [TestMethod]
+        public void TestPrimMST()
+        {
+            EdgeWeightedGraph g = new EdgeWeightedGraph(8);
+            g.AddEdge(new Edge(0, 2, 0.26d));
+            g.AddEdge(new Edge(0, 4, 0.38d));
+            g.AddEdge(new Edge(0, 7, 0.16d));
+            g.AddEdge(new Edge(1, 3, 0.29d));
+            g.AddEdge(new Edge(1, 2, 0.36d));
+            g.AddEdge(new Edge(1, 5, 0.32d));
+            g.AddEdge(new Edge(1, 7, 0.19d));
+            g.AddEdge(new Edge(2, 3, 0.17d));
+            g.AddEdge(new Edge(2, 7, 0.34d));
+            g.AddEdge(new Edge(3, 6, 0.52d));
+            g.AddEdge(new Edge(4, 5, 0.35d));
+            g.AddEdge(new Edge(4, 7, 0.37d));
+            g.AddEdge(new Edge(5, 7, 0.28d));
+            g.AddEdge(new Edge(6, 0, 0.58d));
+            g.AddEdge(new Edge(6, 2, 0.40d));
+            g.AddEdge(new Edge(6, 4, 0.93d));
+            Debug.WriteLine(g);
+
+            PrimMST mst = new PrimMST(g);
+            Debug.WriteLine(mst);
+        }
+
+        [TestMethod]
+        public void TestKruskalMST()
+        {
+            EdgeWeightedGraph g = new EdgeWeightedGraph(8);
+            g.AddEdge(new Edge(0, 2, 0.26d));
+            g.AddEdge(new Edge(0, 4, 0.38d));
+            g.AddEdge(new Edge(0, 7, 0.16d));
+            g.AddEdge(new Edge(1, 3, 0.29d));
+            g.AddEdge(new Edge(1, 2, 0.36d));
+            g.AddEdge(new Edge(1, 5, 0.32d));
+            g.AddEdge(new Edge(1, 7, 0.19d));
+            g.AddEdge(new Edge(2, 3, 0.17d));
+            g.AddEdge(new Edge(2, 7, 0.34d));
+            g.AddEdge(new Edge(3, 6, 0.52d));
+            g.AddEdge(new Edge(4, 5, 0.35d));
+            g.AddEdge(new Edge(4, 7, 0.37d));
+            g.AddEdge(new Edge(5, 7, 0.28d));
+            g.AddEdge(new Edge(6, 0, 0.58d));
+            g.AddEdge(new Edge(6, 2, 0.40d));
+            g.AddEdge(new Edge(6, 4, 0.93d));
+            Debug.WriteLine(g);
+
+            KruskalMST mst = new KruskalMST(g);
+            Debug.WriteLine(mst);
+        }
+
+        [TestMethod]
+        public void TestDirectedEdge()
+        {
+            DirectedEdge e = new DirectedEdge(12, 34, 5.67d);
+            Debug.WriteLine(e);
+        }
+
+        [TestMethod]
+        public void TestEdgeWeightedDigraph()
+        {
+            EdgeWeightedDigraph g = new EdgeWeightedDigraph(9);
+            g.AddEdge(new DirectedEdge(0, 2, 0.26d));
+            g.AddEdge(new DirectedEdge(0, 4, 0.38d));
+            g.AddEdge(new DirectedEdge(2, 7, 0.34d));
+            g.AddEdge(new DirectedEdge(3, 6, 0.52d));
+            g.AddEdge(new DirectedEdge(4, 5, 0.35d));
+            g.AddEdge(new DirectedEdge(5, 1, 0.32d));
+            g.AddEdge(new DirectedEdge(7, 3, 0.39d));
+            Debug.WriteLine(g);
         }
     }
 }
