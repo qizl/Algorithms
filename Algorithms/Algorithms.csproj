@@ -51,11 +51,20 @@
     <Compile Include="Part3\SequentialSearchST.cs" />
     <Compile Include="Part4\BreadthFirstPaths.cs" />
     <Compile Include="Part4\CC.cs" />
+    <Compile Include="Part4\DepthFirstOrder.cs" />
     <Compile Include="Part4\DepthFirstPaths.cs" />
     <Compile Include="Part4\DepthFirstSearch.cs" />
     <Compile Include="Part4\Digraph.cs" />
+    <Compile Include="Part4\DirectedCycle.cs" />
+    <Compile Include="Part4\DirectedDFS.cs" />
+    <Compile Include="Part4\Edge.cs" />
+    <Compile Include="Part4\EdgeWeightedGraph.cs" />
     <Compile Include="Part4\Graph.cs" />
+    <Compile Include="Part4\KosarajuSCC.cs" />
+    <Compile Include="Part4\LazyPrimMST.cs" />
     <Compile Include="Part4\SymbolGraph.cs" />
+    <Compile Include="Part4\Topological.cs" />
+    <Compile Include="Part4\TransitiveClosure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

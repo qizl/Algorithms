@@ -89,5 +89,141 @@ namespace Algorithms.Tests
             Debug.WriteLine("g1: ");
             Debug.WriteLine(g1.ToString());
         }
+
+        [TestMethod]
+        public void TestDirectedCycle()
+        {
+            Digraph g = new Digraph(6);
+            g.AddEdge(0, 5);
+            g.AddEdge(5, 4);
+            g.AddEdge(4, 3);
+            g.AddEdge(3, 5);
+            g.AddEdge(0, 1);
+            g.AddEdge(1, 2);
+            g.AddEdge(2, 3);
+            Debug.WriteLine(g.ToString());
+
+            DirectedCycle finder = new DirectedCycle(g);
+            if (finder.HasCycle())
+            {
+                Debug.WriteLine("Directed cycle:");
+                foreach (var v in finder.Cycle)
+                    Debug.Write(" => " + v);
+            }
+            else
+                Debug.WriteLine("No directed cycle!");
+        }
+
+        [TestMethod]
+        public void TestKosarajuSCCHasCycle()
+        {
+            Digraph g = new Digraph(13);
+            g.AddEdge(0, 5);
+            g.AddEdge(0, 1);
+            g.AddEdge(2, 0);
+            g.AddEdge(2, 3);
+            g.AddEdge(3, 2);
+            g.AddEdge(3, 5);
+            g.AddEdge(4, 2);
+            g.AddEdge(4, 3);
+            g.AddEdge(5, 4);
+            g.AddEdge(6, 0);
+            g.AddEdge(6, 4);
+            g.AddEdge(6, 9);
+            g.AddEdge(7, 6);
+            g.AddEdge(7, 8);
+            g.AddEdge(8, 7);
+            g.AddEdge(8, 9);
+            g.AddEdge(9, 10);
+            g.AddEdge(9, 11);
+            g.AddEdge(10, 12);
+            g.AddEdge(11, 4);
+            g.AddEdge(11, 12);
+            g.AddEdge(12, 9);
+            Debug.WriteLine(g.ToString());
+
+            DepthFirstOrder dfs = new DepthFirstOrder(g);
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in dfs.ReversePost)
+                sb.Append(item + " ");
+            Debug.WriteLine(sb.ToString());
+
+            KosarajuSCC scc = new KosarajuSCC(g);
+            sb.Clear();
+            for (int i = 0; i < scc.ID.Length; i++)
+                sb.Append(i + " - " + scc.ID[i] + Environment.NewLine);
+            Debug.WriteLine(sb.ToString());
+        }
+
+        [TestMethod]
+        public void TestKosarajuSCCHasNotCycle()
+        {
+            Digraph g = new Digraph(6);
+            g.AddEdge(0, 1);
+            g.AddEdge(1, 2);
+            g.AddEdge(2, 3);
+            g.AddEdge(0, 4);
+            g.AddEdge(4, 5);
+            Debug.WriteLine(g.ToString());
+
+            DepthFirstOrder dfs = new DepthFirstOrder(g);
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in dfs.ReversePost)
+                sb.Append(item + " ");
+            Debug.WriteLine(sb.ToString());
+
+            KosarajuSCC scc = new KosarajuSCC(g);
+            sb.Clear();
+            for (int i = 0; i < scc.ID.Length; i++)
+                sb.Append(i + " - " + scc.ID[i] + Environment.NewLine);
+            Debug.WriteLine(sb.ToString());
+        }
+
+        [TestMethod]
+        public void TestEdge()
+        {
+            Edge e = new Edge(12, 34, 5.67);
+            Debug.WriteLine(e);
+        }
+
+        [TestMethod]
+        public void TestEdgeWeightedGraph()
+        {
+            EdgeWeightedGraph g = new EdgeWeightedGraph(8);
+            g.AddEdge(new Edge(0, 2, 0.26d));
+            g.AddEdge(new Edge(0, 4, 0.38d));
+            g.AddEdge(new Edge(0, 7, 0.16d));
+            g.AddEdge(new Edge(1, 3, 0.29d));
+            g.AddEdge(new Edge(1, 2, 0.36d));
+            g.AddEdge(new Edge(1, 5, 0.32d));
+            g.AddEdge(new Edge(1, 7, 0.19d));
+            g.AddEdge(new Edge(2, 3, 0.17d));
+            g.AddEdge(new Edge(2, 7, 0.34d));
+            g.AddEdge(new Edge(3, 6, 0.52d));
+            g.AddEdge(new Edge(4, 5, 0.35d));
+            g.AddEdge(new Edge(4, 7, 0.37d));
+            g.AddEdge(new Edge(5, 7, 0.28d));
+            g.AddEdge(new Edge(6, 0, 0.58d));
+            g.AddEdge(new Edge(6, 2, 0.40d));
+            g.AddEdge(new Edge(6, 4, 0.93d));
+            Debug.WriteLine(g);
+        }
+
+        [TestMethod]
+        public void TestLazyPrimMST()
+        {
+            EdgeWeightedGraph g = new EdgeWeightedGraph(8);
+            g.AddEdge(new Edge(0, 7, 0.16));
+            g.AddEdge(new Edge(1, 7, 0.19));
+            g.AddEdge(new Edge(0, 2, 0.26));
+            g.AddEdge(new Edge(2, 3, 0.17));
+            g.AddEdge(new Edge(5, 7, 0.28));
+            g.AddEdge(new Edge(4, 5, 0.35));
+            g.AddEdge(new Edge(6, 2, 0.40));
+            Debug.WriteLine(g);
+
+            LazyPrimMST mst = new LazyPrimMST(g);
+            Debug.WriteLine(mst);
+        }
     }
 }

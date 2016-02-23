@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Algorithms.Part4
 {
-    public class CC
+    public class KosarajuSCC
     {
         /// <summary>
         /// marked[v] = has vertex v been marked?
@@ -21,14 +21,16 @@ namespace Algorithms.Part4
         public int Count { get; private set; }
 
         /// <summary>
-        /// Computes the connected components of the undirected graph G.
+        /// Computes the connected components of the directed graph G.
         /// </summary>
         /// <param name="g"></param>
-        public CC(Graph g)
+        public KosarajuSCC(Digraph g)
         {
             this.Marked = new bool[g.V];
             this.ID = new int[g.V];
-            for (int v = 0; v < g.V; v++)
+
+            DepthFirstOrder order = new DepthFirstOrder(g.Reverse());
+            foreach (int v in order.ReversePost)
                 if (!this.Marked[v])
                 {
                     this.dfs(g, v);
@@ -36,7 +38,7 @@ namespace Algorithms.Part4
                 }
         }
 
-        private void dfs(Graph g, int v)
+        private void dfs(Digraph g, int v)
         {
             this.Marked[v] = true;
             this.ID[v] = this.Count;
@@ -45,9 +47,6 @@ namespace Algorithms.Part4
                     this.dfs(g, w);
         }
 
-        public bool Connected(int v, int w)
-        {
-            return this.ID[v] == this.ID[w];
-        }
+        public bool StronglyConnected(int v, int w) { return this.ID[v] == this.ID[w]; }
     }
 }
