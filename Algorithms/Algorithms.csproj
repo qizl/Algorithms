@@ -49,17 +49,22 @@
     <Compile Include="Part3\RedBlackBST.cs" />
     <Compile Include="Part3\SeparateChainingHashST.cs" />
     <Compile Include="Part3\SequentialSearchST.cs" />
+    <Compile Include="Part4\AcyclicLP.cs" />
+    <Compile Include="Part4\AcyclicSP.cs" />
+    <Compile Include="Part4\BellmanFordSP.cs" />
     <Compile Include="Part4\BreadthFirstPaths.cs" />
     <Compile Include="Part4\CC.cs" />
     <Compile Include="Part4\DepthFirstOrder.cs" />
     <Compile Include="Part4\DepthFirstPaths.cs" />
     <Compile Include="Part4\DepthFirstSearch.cs" />
     <Compile Include="Part4\Digraph.cs" />
+    <Compile Include="Part4\DijkstraSP.cs" />
     <Compile Include="Part4\DirectedCycle.cs" />
     <Compile Include="Part4\DirectedDFS.cs" />
     <Compile Include="Part4\DirectedEdge.cs" />
     <Compile Include="Part4\Edge.cs" />
     <Compile Include="Part4\EdgeWeightedDigraph.cs" />
+    <Compile Include="Part4\EdgeWeightedDirectedCycle.cs" />
     <Compile Include="Part4\EdgeWeightedGraph.cs" />
     <Compile Include="Part4\Graph.cs" />
     <Compile Include="Part4\KosarajuSCC.cs" />
@@ -69,8 +74,18 @@
     <Compile Include="Part4\SymbolGraph.cs" />
     <Compile Include="Part4\Topological.cs" />
     <Compile Include="Part4\TransitiveClosure.cs" />
+    <Compile Include="Part5\BoyerMoore.cs" />
+    <Compile Include="Part5\KMP.cs" />
+    <Compile Include="Part5\LSD.cs" />
+    <Compile Include="Part5\MSD.cs" />
+    <Compile Include="Part5\Quick3String.cs" />
+    <Compile Include="Part5\BFSSearch.cs" />
+    <Compile Include="Part5\RabinKarp.cs" />
+    <Compile Include="Part5\TrieST.cs" />
+    <Compile Include="Part5\TST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

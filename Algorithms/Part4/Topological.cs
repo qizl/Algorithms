@@ -16,6 +16,16 @@ namespace Algorithms.Part4
             }
         }
 
+        public Topological(EdgeWeightedDigraph g)
+        {
+            //EdgeWeightedDirectedCycle cycleFinder = new EdgeWeightedDirectedCycle(g);
+            //if (!cycleFinder.HasCycle())
+            //{
+            DepthFirstOrder dfs = new DepthFirstOrder(g);
+            this.Order = dfs.ReversePost;
+            //}
+        }
+
         public bool IsDAG() { return this.Order != null; }
     }
 }

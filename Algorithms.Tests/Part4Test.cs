@@ -307,5 +307,34 @@ namespace Algorithms.Tests
             g.AddEdge(new DirectedEdge(7, 3, 0.39d));
             Debug.WriteLine(g);
         }
+
+        [TestMethod]
+        public void TestDijkstraSP()
+        {
+            EdgeWeightedDigraph g = new EdgeWeightedDigraph(8);
+            g.AddEdge(new DirectedEdge(5, 4, 0.35d));
+            g.AddEdge(new DirectedEdge(4, 7, 0.37d));
+            g.AddEdge(new DirectedEdge(5, 7, 0.28d));
+            g.AddEdge(new DirectedEdge(5, 1, 0.32d));
+            g.AddEdge(new DirectedEdge(4, 0, 0.38d));
+            g.AddEdge(new DirectedEdge(0, 2, 0.26d));
+            g.AddEdge(new DirectedEdge(3, 7, 0.39d));
+            g.AddEdge(new DirectedEdge(1, 3, 0.29d));
+            g.AddEdge(new DirectedEdge(7, 2, 0.34d));
+            g.AddEdge(new DirectedEdge(6, 2, 0.40d));
+            g.AddEdge(new DirectedEdge(3, 6, 0.52d));
+            g.AddEdge(new DirectedEdge(6, 0, 0.58d));
+            g.AddEdge(new DirectedEdge(6, 4, 0.93d));
+            Debug.WriteLine(g);
+
+            //DijkstraSP mst = new DijkstraSP(g, 5);
+            //Debug.WriteLine(mst);
+            //AcyclicSP mst1 = new AcyclicSP(g, 5);
+            //Debug.WriteLine(mst1);
+            //AcyclicLP mst2 = new AcyclicLP(g, 5);
+            //Debug.WriteLine(mst2);
+            BellmanFordSP mst3 = new BellmanFordSP(g, 5);
+            Debug.WriteLine(mst3);
+        }
     }
 }
